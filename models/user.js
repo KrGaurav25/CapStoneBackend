@@ -19,6 +19,13 @@ const userSchema = mongoose.Schema({
     admin:{
         type:Boolean,
         default:false
+    },
+    // img:{
+    //     data:Buffer,
+    //     contentType:String
+    // },
+    resume:{
+        type:String
     }
 });
 //plural form of Product is the name of collection 

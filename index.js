@@ -9,15 +9,19 @@ require('dotenv').config();
 console.log(process.env.DB_PASS);
 
 const mongoose = require('mongoose');
-mongoose.connect(`mongodb+srv://yogyasinghal:${process.env.DB_PASS}@cluster0.9hqsa1v.mongodb.net/capStone?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://yogyasinghal:${process.env.DB_PASS}@cluster0.9hqsa1v.mongodb.net/testBack?retryWrites=true&w=majority`)
 .then((res)=>console.log('connected to db (model)'))
 .catch((e)=>console.log('error in connection',e))
 
 // mongodb+srv://yogyasinghal:mongodb@1083@cluster0.9hqsa1v.mongodb.net/Capstone?retryWrites=true&w=majority
 
 let userRouter = require('./routes/user');
+let SignupRouter = require('./routes/signup');
+let LoginRouter = require('./routes/login');
 
 app.use('/',userRouter);
+app.use('/login',LoginRouter)
+app.use('/signup',SignupRouter);
 
 const PORT = process.env.PORT || 9000;
 
