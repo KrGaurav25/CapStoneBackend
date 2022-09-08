@@ -26,7 +26,7 @@ const userSchema = mongoose.Schema({
     // },
     resume:{
         type:String
-    }
+    },
 });
 //plural form of Product is the name of collection 
 module.exports = mongoose.model('User',userSchema);

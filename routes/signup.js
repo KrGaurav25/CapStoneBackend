@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 router.post('/',(req,res,next)=>{
-    console.log("inside signup post");
+    console.log("inside signup post",req.body);
     User.find({email:req.body.user.email})
         .exec()
         .then(user=>{
@@ -26,8 +26,8 @@ router.post('/',(req,res,next)=>{
                         name:req.body.user.name,
                         email:req.body.user.email,
                         password:hash,
-                        admin:true,
-                        resume:'resumee string'
+                        admin:req.body.user.admin,
+                        resume:'resumee string',
                         });
                         // console.log("user = ",job);
                         job.save()
