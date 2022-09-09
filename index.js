@@ -19,12 +19,16 @@ let userRouter = require('./routes/user');
 let SignupRouter = require('./routes/signup');
 let LoginRouter = require('./routes/login');
 let job=require('./routes/jobs')
+let postJobs = require('./routes/postJobs');
+
+let profileRouter = require('./routes/profile');
+app.use('/profile',profileRouter);
 
 app.use('/',userRouter);
 app.use('/login',LoginRouter)
 app.use('/signup',SignupRouter);
 app.use('/dashboard',job)
-
+app.use('/postJobs',postJobs)
 
 const PORT = process.env.PORT || 9000;
 
